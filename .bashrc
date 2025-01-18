@@ -1,5 +1,7 @@
 # .bashrc
 
+EDITOR=/usr/bin/nvim
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
@@ -26,6 +28,14 @@ unset rc
 
 export PATH="$PATH:/opt/mssql-tools18/bin"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# fzf-tab completion
+
+if [ ! -f ./fzf-bash-completion.sh ]; then
+	wget https://raw.githubusercontent.com/lincheney/fzf-tab-completion/refs/heads/master/bash/fzf-bash-completion.sh
+fi
+source ./fzf-bash-completion.sh
+bind -x '"\t": fzf_bash_completion'
 
 ##################################
 # ALIASES
