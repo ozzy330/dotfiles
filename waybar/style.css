@@ -1,0 +1,181 @@
+* {
+    font-family: 'Fira Coode Nerd Font', monospace;
+    font-size: 13px;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+button {
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: #4f5258;
+		box-shadow: inherit;
+    text-shadow: inherit;
+}
+
+/* you can set a style on hover for any module like this */
+#pulseaudio:hover {
+    background-color: #4f5258;
+}
+
+#workspaces button {
+    padding: 0px 0px;
+    color: #e0e2ea;
+}
+
+#workspaces button.focused {
+    background-color: #e0e2ea;
+    color: #14161b;
+}
+
+#workspaces button.urgent {
+    background-color: #ffc0b9;
+}
+
+#mode {
+		padding: 0 4px;
+    color: #14161b;
+    background-color:  #ffcaff; 
+		font-weight: bold;
+}
+		
+#clock,
+#batteryj
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    padding: 5px 5px;
+    color: #ffffff;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+    font-weight: bold;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+	color: #e0e2ea;
+	font-weight: bold;
+}
+
+#battery {
+	color: #e0e2ea;
+}
+
+#battery.charging, #battery.plugged {
+	color: #b3f6c0;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: #ffc0b9;
+    color: #14161b;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+	color: #e0e2ea;
+}
+
+#memory {
+	color: #e0e2ea;
+}
+
+#network {
+	color: #e0e2ea;
+}
+#network:hover {
+  background-color: #4f5258;
+}
+
+#network.disconnected {
+	color: #14161b;
+  background-color: #ffc0b9;
+}
+
+#pulseaudio {
+	color: #e0e2ea;
+}
+
+#pulseaudio.muted {
+	color: #ffc0b9;
+}
+
+#wireplumber {
+    background-color: #fff0f5;
+    color: #000000;
+}
+
+#tray:hover {
+    background-color: #4f5258;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #ffc0b9;
+}
+
+
+#scratchpad {
+    color: #14161b;
+    background-color:  #a6dbff; 
+		font-weight: bold;
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
