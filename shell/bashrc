@@ -4,12 +4,12 @@ EDITOR=/usr/bin/nvim
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
+	. /etc/bashrc
 fi
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+	PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
 
@@ -18,11 +18,11 @@ export PATH
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-    for rc in ~/.bashrc.d/*; do
-        if [ -f "$rc" ]; then
-            . "$rc"
-        fi
-    done
+	for rc in ~/.bashrc.d/*; do
+		if [ -f "$rc" ]; then
+			. "$rc"
+		fi
+	done
 fi
 unset rc
 
@@ -32,6 +32,9 @@ export PATH="/home/ozzy330/go/bin:$PATH"
 
 alias q="exit"
 alias :q="exit"
+alias o="xdg-open"
+# To fix foot dot working righ on ssh
+alias ssh="export TERM=xterm-256color; ssh"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -49,17 +52,17 @@ on_ssh() {
 
 on_git() {
 
-if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+	if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
 		branch=$(git rev-parse --abbrev-ref HEAD)
 		if [ -n "$(git status -s)" ]; then
 			echo "$fg_white$branch*"
 		else
 			echo "$fg_white$branch"
 		fi
-fi
+	fi
 }
 update_prompt() {
-    PS1="$(on_ssh)$fg_blue\w $(on_git)\n$t_bold$fg_green❯$c_reset "
+	PS1="$(on_ssh)$fg_blue\w $(on_git)\n$t_bold$fg_green❯$c_reset "
 }
 PROMPT_COMMAND=update_prompt
 
