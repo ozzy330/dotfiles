@@ -12,4 +12,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Languages configs
 require("langs.lua")
-require("langs.sh")
+require("langs.lua")

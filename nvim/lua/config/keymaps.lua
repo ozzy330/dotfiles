@@ -31,11 +31,15 @@ keymap("n", "TT", function()
 	vim.cmd.startinsert()
 end)
 keymap("t", "<A-j><A-k>", "<C-\\><C-n>", { silent = true })
+keymap("n", "th", ":tabprev<CR>", { silent = true })
+keymap("n", "tl", ":tabnext<CR>", { silent = true })
 
 -- LSP
 keymap("n", "grn", vim.lsp.buf.rename)
 keymap("n", "gca", vim.lsp.buf.code_action)
 keymap("n", "grf", vim.lsp.buf.references)
+keymap("n", "gdf", vim.lsp.buf.definition)
+keymap("n", "gdc", vim.lsp.buf.declaration)
 
 -- Quick Fix
 keymap("n", "<M-j>", "<cmd>cnext<CR>", { nowait = true })
