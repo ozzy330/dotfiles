@@ -36,10 +36,38 @@ alias o="xdg-open"
 # To fix foot dot working righ on ssh
 alias ssh="export TERM=xterm-256color; ssh"
 
+alias connect="~/Documents/ssh_keys/connect.sh"
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 bind 'set show-all-if-ambiguous on'
 bind 'set completion-ignore-case on'
+
+format_time() {
+	seconds=$1
+	if [ $seconds -lt 60 ]; then
+		if [ $seconds -gt 0 ]; then
+			echo $seconds"s"
+		fi
+	elif [ $seconds -lt 3600 ]; then
+		minutes=$((seconds / 60))
+		echo $minutes"m"
+	elif [ $seconds -lt 86400 ]; then
+		hours=$((seconds / 3600))
+		echo $hours"h"
+	else
+		days=$((seconds / 86400))
+		echo $days"d"
+	fi
+}
+
+time_command() {
+	start=$(date +%s)
+	"$@"
+	end=$(date +%s)
+	elapsed=$((end - start))
+	format_time $elapsed
+}
 
 ##################################
 # CUSTOM PROMPT
@@ -61,9 +89,20 @@ on_git() {
 		fi
 	fi
 }
-update_prompt() {
-	PS1="$(on_ssh)$fg_blue\w $(on_git)\n$t_bold$fg_green❯$c_reset "
+
+on_error() {
+	if [ $? -eq 0 ]; then
+		echo "$t_bold$fg_green❯"
+	else
+		echo "$t_bold$fg_red❯"
+	fi
 }
+
+update_prompt() {
+	PROMPT=$(on_error)
+	PS1="$(on_ssh)$fg_blue\w $(on_git) \n$PROMPT $c_reset"
+}
+
 PROMPT_COMMAND=update_prompt
 
 #change on symbolic links missing files
@@ -111,3 +150,15 @@ bg_bmagenta='\[\e[105m\]'
 bg_bcyan='\[\e[106m\]'
 bg_bwhite='\[\e[107m\]'
 ##################################
+
+# pnpm
+export PNPM_HOME="/home/ozzy330/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

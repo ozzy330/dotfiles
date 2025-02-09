@@ -1,12 +1,12 @@
 require("lspconfig").bashls.setup({})
 require("conform").setup({
 	formatters_by_ft = {
-		-- sh = { "shfmt" },
+		sh = { "shfmt" },
 	},
 	formatters = {
 		shfmt = {
 			command = "shfmt",
-			args = { "-p", "$FILENAME" },
+			args = { "-ln bash", "$FILENAME" },
 			stdin = true,
 		},
 	},

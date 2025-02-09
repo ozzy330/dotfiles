@@ -1,5 +1,4 @@
-local capabilities = require("blink.cmp").get_lsp_capabilities()
-require("lspconfig").lua_ls.setup({ capabilities = capabilities })
+require("lspconfig").lua_ls.setup({})
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },

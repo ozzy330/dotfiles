@@ -1,6 +1,6 @@
 * {
     font-family: 'Fira Coode Nerd Font', monospace;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 window#waybar {
@@ -42,6 +42,7 @@ button:hover {
 }
 
 #workspaces button.urgent {
+    color: #14161b;
     background-color: #ffc0b9;
 }
 

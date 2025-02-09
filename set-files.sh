@@ -4,6 +4,7 @@ declare -A conf
 conf["nvim"]="$HOME/.config/nvim"
 conf["shell/bashrc"]="$HOME/.bashrc"
 conf["waybar"]="$HOME/.config/waybar"
+conf["qutebrowser"]="$HOME/.config/qutebrowser"
 
 for org in "${!conf[@]}"; do
 	dest="${conf[$org]}"
@@ -14,6 +15,3 @@ for org in "${!conf[@]}"; do
 		echo "Added config ($dest)"
 	fi
 done
-# ln -s $DOTSPATH/nvim ~/.config/nvim
-# ln -s $DOTSPATH/shell/bashrc ~/.bashrc
-# ln -s $DOTSPATH/waybar ~/.config/waybar

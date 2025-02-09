@@ -25,7 +25,10 @@ keymap("n", "tt", function()
 	vim.cmd.terminal()
 	vim.cmd.startinsert()
 end)
+
+local trash_terminal = nil
 keymap("n", "TT", function()
+	trash_terminal = vim.api.nvim_create_buf(true, true)
 	vim.cmd.tabnew()
 	vim.cmd.terminal()
 	vim.cmd.startinsert()

@@ -9,5 +9,14 @@ settings:
   content.javascript.clipboard:
     https://chatgpt.com: access-paste
     https://github.com: access-paste
+    https://temp-mail.io: access-paste
+  content.media.audio_capture:
+    https://meet.google.com: true
+  content.media.audio_video_capture:
+    https://meet.google.com: true
+  content.media.video_capture:
+    https://meet.google.com: true
   content.notifications.enabled:
     https://nefliz.ozzy330.com: true
+  content.register_protocol_handler:
+    https://mail.google.com?extsrc=mailto&url=%25s: true

@@ -7,5 +7,6 @@ vim.o.termguicolors = true
 vim.o.breakindent = true
 vim.o.undofile = true
 -- Case insensitive searching UNLESS /C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
+set.ignorecase = true
+set.smartcase = true
+set.completeopt:remove("preview")

@@ -67,8 +67,7 @@
         "format-ethernet": "NET:<b>ETH</b>",
         "tooltip-format": "{essid}\n{ifname} via {gwaddr}",
         "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "NET:<b>OFF</b>",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": "NET:<b>OFF</b>"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -79,5 +78,5 @@
         "format-source": "MIC:<b>{volume}</b>",
         "format-source-muted": "MIC:<b>OFF</b>",
         "on-click": "pavucontrol"
-    },
+    }
 }
