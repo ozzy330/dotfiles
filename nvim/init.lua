@@ -15,6 +15,12 @@ vim.diagnostic.config({
 	float = true,
 })
 
+vim.api.nvim_create_autocmd("DiagnosticChanged", {
+	callback = function()
+		vim.diagnostic.setqflist({ open = false })
+	end,
+})
+
 require("lspconfig").marksman.setup({})
 require("conform").setup({
 	formatters_by_ft = {
