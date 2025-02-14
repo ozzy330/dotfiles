@@ -10,6 +10,18 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("HighlighYank", { clear = true }),
 })
 
+vim.diagnostic.config({
+	virtual_text = false,
+	float = true,
+})
+
+require("lspconfig").marksman.setup({})
+require("conform").setup({
+	formatters_by_ft = {
+		markdown = { "prettier" },
+	},
+})
+
 -- Languages configs
 require("langs.lua")
 require("langs.sh")

@@ -43,6 +43,11 @@ keymap("n", "gca", vim.lsp.buf.code_action)
 keymap("n", "grf", vim.lsp.buf.references)
 keymap("n", "gdf", vim.lsp.buf.definition)
 keymap("n", "gdc", vim.lsp.buf.declaration)
+keymap("n", "<leader>d", vim.diagnostic.open_float)
+keymap("n", "gqf", function()
+	vim.diagnostic.setqflist()
+	vim.cmd("copen")
+end)
 
 -- Quick Fix
 keymap("n", "<M-j>", "<cmd>cnext<CR>", { nowait = true })
