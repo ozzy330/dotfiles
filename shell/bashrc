@@ -37,6 +37,7 @@ alias o="xdg-open"
 alias ssh="export TERM=xterm-256color; ssh"
 
 alias connect="~/Documents/ssh_keys/connect.sh"
+alias ucr="cd ~/Documents/Nextcloud/si_2025"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -162,3 +163,7 @@ esac
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+complete -C /usr/bin/terraform terraform
+export ONOS_ROOT=~/onos
+source $ONOS_ROOT/tools/dev/bash_profile

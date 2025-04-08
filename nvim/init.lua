@@ -25,6 +25,7 @@ require("lspconfig").marksman.setup({})
 require("conform").setup({
 	formatters_by_ft = {
 		markdown = { "prettier" },
+		yaml = { "yamlfmt" },
 	},
 })
 
@@ -33,3 +34,4 @@ require("langs.lua")
 require("langs.sh")
 require("langs.go")
 require("langs.tsx")
+require("langs.cpp")

@@ -2,6 +2,7 @@ require("lspconfig").bashls.setup({})
 require("conform").setup({
 	formatters_by_ft = {
 		sh = { "shfmt" },
+		terraform = { "terraform_fmt" },
 	},
 	formatters = {
 		shfmt = {

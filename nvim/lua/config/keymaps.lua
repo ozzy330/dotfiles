@@ -17,6 +17,14 @@ keymap("n", "<leader>tc", ":tabclose<CR>", { silent = true })
 -- Delete a word
 keymap("i", "<C-BS>", "<C-W>", { silent = true })
 
+keymap("n", "<leader>r", function()
+	vim.cmd.vnew()
+	vim.cmd.wincmd("J")
+	vim.api.nvim_win_set_height(0, 10)
+	vim.fn.termopen("make run")
+	vim.cmd.startinsert()
+end)
+
 -- Terminal
 keymap("n", "tt", function()
 	vim.cmd.vnew()
@@ -50,5 +58,5 @@ keymap("n", "gdg", function()
 end)
 
 -- Quick Fix
-keymap("n", "<M-j>", "<cmd>cnext<CR>", { nowait = true })
-keymap("n", "<M-k>", "<cmd>cpre<CR>", { nowait = true })
+-- keymap("n", "<M-j>", "<cmd>cnext<CR>", { nowait = true })
+-- keymap("n", "<M-k>", "<cmd>cpre<CR>", { nowait = true })
