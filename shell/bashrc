@@ -80,12 +80,11 @@ on_ssh() {
 }
 
 on_git() {
-	is_worktree=$(git rev-parse --is-inside-work-tree)
 	if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+		is_worktree=$(git rev-parse --is-inside-work-tree)
 		branch=$(git rev-parse --abbrev-ref HEAD)
 		if [ "$is_worktree" = "true" ]; then
 			if [ -n "$(git status -s)" ]; then
-				echo aqui
 				echo "$fg_white$branch*"
 			else
 				echo "$fg_white$branch"
