@@ -7,6 +7,9 @@ keymap({ "n", "v", "i" }, "<A-j><A-k>", "<Esc>", { silent = true })
 keymap("n", "<leader>x", ":source %<CR>")
 keymap("v", "<leader>x", ":.lua<CR>")
 
+keymap("n", "<leader>sw", require("telescope.builtin").grep_string, { desc = "[S]earch current [W]ord" })
+keymap("n", "<leader>sg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
+
 -- Clear search highligh
 keymap("n", "/?", ":let @/=''<CR>", { silent = true })
 
@@ -17,11 +20,19 @@ keymap("n", "<leader>tc", ":tabclose<CR>", { silent = true })
 -- Delete a word
 keymap("i", "<C-BS>", "<C-W>", { silent = true })
 
-keymap("n", "<leader>r", function()
+keymap("n", "<leader>rn", function()
 	vim.cmd.vnew()
 	vim.cmd.wincmd("J")
 	vim.api.nvim_win_set_height(0, 10)
 	vim.fn.termopen("make run")
+	vim.cmd.startinsert()
+end)
+
+keymap("n", "<leader>db", function()
+	vim.cmd.vnew()
+	vim.cmd.wincmd("J")
+	vim.api.nvim_win_set_height(0, 10)
+	vim.fn.termopen("make debug")
 	vim.cmd.startinsert()
 end)
 

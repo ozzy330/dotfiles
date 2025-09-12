@@ -36,7 +36,8 @@ output * bg ~/Pictures/pexels-matt-hatchett-2860686.jpg fill
 #
 # Example configuration:
 #
-output HDMI-A-1 resolution 1920x1080 position 1920,0
+output HDMI-A-1 resolution 1920x1080 position 0,0
+output HDMI-A-2 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -254,3 +255,5 @@ client.unfocused         $empty 	 $base $text  $overlay0  $empty
 client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $empty    $base $text  $overlay0  $empty
 
+
+for_window [app_id="org.adishatz.Screenshot"] floating enable

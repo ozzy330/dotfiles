@@ -6,7 +6,7 @@ require("conform").setup({
 		tsx = { "prettierd", "rustywind" },
 		html = { "prettierd", "rustywind" },
 		css = { "prettierd", "rustywind" },
-		js = { "prettierd", "rustywind" },
+		javascript = { "prettierd", "rustywind" },
 		javascriptreact = { "prettierd", "rustywind" },
 		typescriptreact = { "prettierd", "rustywind" },
 	},
