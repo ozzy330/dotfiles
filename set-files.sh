@@ -6,6 +6,9 @@ conf["shell/bashrc"]="$HOME/.bashrc"
 conf["waybar"]="$HOME/.config/waybar"
 conf["qutebrowser"]="$HOME/.config/qutebrowser"
 conf["sway"]="$HOME/.config/sway"
+conf["foot"]="$HOME/.config/foot"
+conf["mpv"]="$HOME/.config/mpv"
+conf["mpv"]="$HOME/.config/jellyfin-mpv-shim"
 
 for org in "${!conf[@]}"; do
 	dest="${conf[$org]}"

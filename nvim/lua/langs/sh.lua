@@ -1,4 +1,4 @@
-require("lspconfig").bashls.setup({})
+vim.lsp.enable("bashls")
 require("conform").setup({
 	formatters_by_ft = {
 		sh = { "shfmt" },

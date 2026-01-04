@@ -8,6 +8,8 @@ set $scripts ~/.config/sway/scripts
 
 exec_always --no-startup-id $scripts/autotiling.py
 
+exec_always $scripts/jelly-mpv.sh
+
 font pango:Fira Code Nerd Font 12
 
 gaps outer 3
@@ -24,7 +26,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term kitty
 # Your preferred application launcher
 # set $menu wmenu-run
 set $menu wofi --show drun
@@ -156,7 +158,7 @@ input type:touchpad natural_scroll enabled
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
     bindsym $mod+b splith
-    bindsym $mod+v splitv
+    #bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -257,3 +259,7 @@ client.placeholder       $empty    $base $text  $overlay0  $empty
 
 
 for_window [app_id="org.adishatz.Screenshot"] floating enable
+
+exec_always wl-paste --type text --watch cliphist store
+exec_always wl-paste --type image --watch cliphist store
+bindsym $mod+v exec cliphist list | rofi -dmenu -p "Clipboard" -theme-str 'window {width: 50%;}' | cliphist decode | wl-copy

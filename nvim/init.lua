@@ -28,8 +28,7 @@ vim.api.nvim_create_autocmd("DiagnosticChanged", {
 	end,
 })
 
-require("lspconfig").marksman.setup({})
-require("lspconfig").marksman.setup({})
+vim.lsp.enable("marksman")
 require("conform").setup({
 	formatters_by_ft = {
 		markdown = { "prettier" },

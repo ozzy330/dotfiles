@@ -1,6 +1,6 @@
-require("lspconfig").ts_ls.setup({})
-require("lspconfig").tailwindcss.setup({})
-require("lspconfig").eslint.setup({})
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("tailwindcss")
+vim.lsp.enable("eslint")
 require("conform").setup({
 	formatters_by_ft = {
 		tsx = { "prettierd", "rustywind" },

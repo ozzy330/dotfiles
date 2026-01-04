@@ -1,4 +1,4 @@
-require("lspconfig").clangd.setup({})
+vim.lsp.enable("clangd")
 
 require("conform").setup({
 	formatters_by_ft = {
